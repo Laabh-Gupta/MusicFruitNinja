@@ -1,0 +1,25 @@
+*.mp3    # ignores all mp3 audio files
+*.wav    # ignores all wav audio files
+*.mp4    # ignores all mp4 video files
+*.zip    # ignores all zip archives
+
+# Unity folders to ignore
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+MemoryCaptures/
+UserSettings/
+Packages/manifest.json.meta
+Packages/packages-lock.json.meta
+
+# Unity auto-generated stuff
+*.csproj
+*.sln
+*.user
+*.unityproj
+
+# Cache folders
+Library/PackageCache/
