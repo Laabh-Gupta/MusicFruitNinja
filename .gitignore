@@ -1,8 +1,3 @@
-*.mp3    # ignores all mp3 audio files
-*.wav    # ignores all wav audio files
-*.mp4    # ignores all mp4 video files
-*.zip    # ignores all zip archives
-
 # Unity folders to ignore
 [Ll]ibrary/
 [Tt]emp/
