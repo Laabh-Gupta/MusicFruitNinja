@@ -18,3 +18,9 @@ Packages/packages-lock.json.meta
 
 # Cache folders
 Library/PackageCache/
+
+# Ignore LFS files (already pushed)
+*.mp3
+*.wav
+*.mp4
+*.zip
