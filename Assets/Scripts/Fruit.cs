@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
-
     public GameObject whole;
     public GameObject sliced;
 
     private Rigidbody fruitRB;
-
     private Collider fruitCollider;
-
     private ParticleSystem juiceEffect;
     private CanvasScript uiManager;
+
+    private float spawnTime; // ⏱️ Time when the fruit spawns
 
     private void Awake() {
         fruitRB = GetComponent<Rigidbody>();
@@ -23,8 +22,21 @@ public class Fruit : MonoBehaviour
         uiManager = FindObjectOfType<CanvasScript>();
     }
 
+    private void Start()
+    {
+        spawnTime = Time.time; // 🟢 Record spawn time when fruit appears
+    }
+
     private void OnTriggerEnter(Collider collider) {
         if (collider.CompareTag("Player")) {
+            float sliceTime = Time.time; // 🔴 Time when fruit is sliced
+            float responseTime = sliceTime - spawnTime; // ⏱️ Calculate response
+
+            Debug.Log("Response Time: " + responseTime.ToString("F3") + " seconds");
+
+            // Optionally store this data for analytics or export
+            PlayerPrefs.SetFloat("LastResponseTime", responseTime);
+
             Blade blade = collider.GetComponent<Blade>();
             Slice(blade.direction, blade.transform.position, blade.sliceForce);
         }
@@ -51,15 +63,9 @@ public class Fruit : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         
     }
 }
+ 
